@@ -7,8 +7,7 @@ export const site = {
   description:
     'CloudArc Labs is a consulting practice for cloud infrastructure, DevOps, network automation and edge security. We design it, build it as code, and hand it over in working order.',
 
-  // TODO: replace with your real contact address before going live.
-  email: 'hello@example.com',
+  email: 'info@cloudarclabs.com',
 
   // TODO (optional): paste a Calendly / Cal.com link to show a "Book a call" button.
   bookingUrl: '',
