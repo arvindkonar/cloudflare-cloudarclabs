@@ -7,13 +7,13 @@ Astro static site, hosted on Cloudflare Workers (static assets), code in GitHub.
 Edit `src/site.ts`:
 
 - `name` – confirm the business name spelling.
-- `email` – replace the `hello@example.com` placeholder.
+- `email` – set to `info@cloudarclabs.com`.
 - `bookingUrl` – optional Calendly / Cal.com link; adds a "Book a call" button.
 - `services` – all service copy lives here.
 
 Edit `src/pages/about.astro` and replace the bracketed "Who we are" placeholder.
 
-Once your domain is attached, set `site` in `astro.config.mjs`.
+`site` in `astro.config.mjs` is set to `https://cloudarclabs.com`; attach the domain in Cloudflare.
 
 ## Run locally
 
