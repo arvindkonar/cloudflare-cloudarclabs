@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import { services } from '../../site';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const others = services.filter((item) => item.slug !== service.slug);
+---
+
+<Base title={service.title} description={service.short}>
+  <section class="hero hero--page">
+    <div class="wrap">
+      <p class="eyebrow">Service &middot; {service.layer}</p>
+      <h1>{service.title}</h1>
+      <p class="lede">{service.summary}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <div>
+        <h2>Where this helps</h2>
+        <ul class="plain-list">
+          {service.problems.map((problem) => <li>{problem}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>What you get</h2>
+        <ul class="plain-list">
+          {service.deliverables.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <h2>Tools we work with</h2>
+      <ul class="tags">
+        {service.tools.map((tool) => <li>{tool}</li>)}
+      </ul>
+      <p class="muted">
+        We are not tied to a vendor. If your team has already standardised on something else, we
+        work with that.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Other services</h2>
+      <ul class="service-list">
+        {
+          others.map((item) => (
+            <li>
+              <a class="service-row" href={`/services/${item.slug}/`}>
+                <span class="service-row__layer">{item.layer}</span>
+                <span class="service-row__body">
+                  <span class="service-row__title">{item.title}</span>
+                  <span class="service-row__text">{item.short}</span>
+                </span>
+                <span class="service-row__arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="actions">
+        <a class="button" href="/contact/">Discuss {service.title.toLowerCase()}</a>
+      </div>
+    </div>
+  </section>
+</Base>

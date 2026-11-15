@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base title="About" description={`About ${site.name} and how we work.`}>
+  <section class="hero hero--page">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>A small practice focused on infrastructure that lasts.</h1>
+      <p class="lede">
+        {site.name} works with engineering teams on cloud infrastructure, delivery pipelines,
+        network automation and edge security.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <!--
+        TODO: replace this section with your own story before going live.
+        Suggested content: who you are, years of experience, the kinds of
+        environments you have run, certifications, and where you are based.
+      -->
+      <h2>Who we are</h2>
+      <p>
+        [Add your background here: who is behind {site.name}, the experience you bring, and the
+        kinds of teams you work best with.]
+      </p>
+
+      <h2>How we work</h2>
+      <p>
+        We prefer small, well-defined engagements with a clear outcome. Work happens in your
+        repositories and your accounts, through your review process, so there is nothing to
+        migrate when we finish.
+      </p>
+      <p>
+        We write things down. Every engagement ends with documentation and runbooks your team can
+        use, and time set aside to walk your engineers through what was built and why.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="/contact/">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+</Base>

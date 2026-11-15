@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, services } from '../site';
+
+const steps = [
+  {
+    title: 'Assess',
+    body: 'We review what you run today, talk to the people who operate it, and write down what we found: risks, costs and the changes worth making first.',
+  },
+  {
+    title: 'Build',
+    body: 'We implement the agreed changes in your repositories and your accounts, as code, through the same review process your team uses.',
+  },
+  {
+    title: 'Hand over',
+    body: 'You get documentation, runbooks and working sessions with your engineers, so the result is something your team owns and can change without us.',
+  },
+];
+---
+
+<Base>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Infrastructure consulting</p>
+      <h1>From cloud core to network edge, built as code.</h1>
+      <p class="lede">
+        {site.name} helps engineering teams design, automate and secure the infrastructure their
+        products depend on. We work in your repositories, and we leave when your team can run it
+        without us.
+      </p>
+      <div class="actions">
+        <a class="button" href="/contact/">Talk to us</a>
+        <a class="button button--ghost" href="#services">See services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2>Four practices, one stack</h2>
+      <p class="section__intro">
+        Each practice stands on its own. Together they cover the path a request takes, from the
+        edge where it arrives to the cloud where it is served.
+      </p>
+      <ul class="service-list">
+        {
+          services.map((service) => (
+            <li>
+              <a class="service-row" href={`/services/${service.slug}/`}>
+                <span class="service-row__layer">{service.layer}</span>
+                <span class="service-row__body">
+                  <span class="service-row__title">{service.title}</span>
+                  <span class="service-row__text">{service.short}</span>
+                </span>
+                <span class="service-row__arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="approach">
+    <div class="wrap">
+      <p class="eyebrow">Approach</p>
+      <h2>How an engagement runs</h2>
+      <ol class="steps">
+        {
+          steps.map((step) => (
+            <li class="steps__item">
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap principles">
+      <div>
+        <p class="eyebrow">Principles</p>
+        <h2>What you can expect</h2>
+      </div>
+      <dl class="principles__list">
+        <div>
+          <dt>Everything in version control</dt>
+          <dd>Infrastructure, network configuration and security policy are code, reviewed before they change anything.</dd>
+        </div>
+        <div>
+          <dt>Your accounts, your repositories</dt>
+          <dd>The work lives where your team already works. Nothing depends on tooling only we can access.</dd>
+        </div>
+        <div>
+          <dt>Written findings</dt>
+          <dd>Recommendations come with the reasoning and the trade-offs, so you can decide what to do and what to skip.</dd>
+        </div>
+        <div>
+          <dt>Built to be handed over</dt>
+          <dd>Documentation and runbooks are part of the work, delivered alongside it.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="wrap">
+      <h2>Have a project in mind?</h2>
+      <p class="section__intro">
+        Tell us what you are running and where it hurts. A first conversation costs nothing.
+      </p>
+      <div class="actions">
+        <a class="button" href="/contact/">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

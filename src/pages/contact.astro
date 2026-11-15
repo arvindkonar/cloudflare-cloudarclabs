@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base title="Contact" description={`Get in touch with ${site.name}.`}>
+  <section class="hero hero--page">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Tell us what you are working on.</h1>
+      <p class="lede">
+        A few lines about your environment and the problem is enough to start. We will reply with
+        questions or a time to talk.
+      </p>
+      <div class="actions">
+        <a class="button" href={`mailto:${site.email}`}>Email {site.email}</a>
+        {
+          site.bookingUrl && (
+            <a class="button button--ghost" href={site.bookingUrl} rel="noopener">
+              Book a call
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Useful to include</h2>
+      <ul class="plain-list">
+        <li>Which cloud providers, platforms or network vendors you use today.</li>
+        <li>What prompted you to look for help now.</li>
+        <li>Any deadline, audit or migration date you are working towards.</li>
+        <li>The size of the team that will own the result.</li>
+      </ul>
+    </div>
+  </section>
+</Base>
