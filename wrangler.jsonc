@@ -1,7 +1,9 @@
 {
   // Cloudflare Workers config: static assets only, no Worker script.
-  "name": "cloudarclabs",
+  "name": "cloudflare-cloudarclabs",
   "compatibility_date": "2026-11-01",
+  // Required by `wrangler preview`, which Workers Builds runs for non-production branches.
+  "previews": {},
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
