@@ -12,16 +12,42 @@ import { site } from '../site';
         A few lines about your environment and the problem is enough to start. We will reply with
         questions or a time to talk.
       </p>
-      <div class="actions">
-        <a class="button" href={`mailto:${site.email}`}>Email {site.email}</a>
-        {
-          site.bookingUrl && (
-            <a class="button button--ghost" href={site.bookingUrl} rel="noopener">
-              Book a call
-            </a>
-          )
-        }
-      </div>
+      <form class="contact-form" method="post" action="/api/contact">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="100" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" />
+        </div>
+        <div class="field">
+          <label for="company">Company <span class="optional">(optional)</span></label>
+          <input id="company" name="company" type="text" autocomplete="organization" maxlength="100" />
+        </div>
+        <div class="field">
+          <label for="message">What are you working on?</label>
+          <textarea id="message" name="message" rows="6" required minlength="10" maxlength="5000"></textarea>
+        </div>
+        <!-- Honeypot: hidden from people, filled in by bots. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="actions">
+          <button class="button" type="submit">Send message</button>
+          {
+            site.bookingUrl && (
+              <a class="button button--ghost" href={site.bookingUrl} rel="noopener">
+                Book a call
+              </a>
+            )
+          }
+        </div>
+        <p class="form-note">
+          Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+      </form>
     </div>
   </section>
 
