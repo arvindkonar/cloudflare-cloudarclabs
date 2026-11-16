@@ -3,7 +3,7 @@
 
 export const site = {
   name: 'CloudArc Labs',
-  tagline: 'Cloud, DevOps, network automation and edge security consulting',
+  tagline: 'Cloud and Infra Consulting',
   description:
     'CloudArc Labs is a consulting practice for cloud infrastructure, DevOps, network automation and edge security. We design it, build it as code, and hand it over in working order.',
 
