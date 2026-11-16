@@ -499,3 +499,65 @@ ol {
     transition: none;
   }
 }
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 38rem;
+  margin-top: 2rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper-tint);
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  width: 100%;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form .actions {
+  margin-top: 0.5rem;
+}
+
+.contact-form button.button {
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.form-note {
+  color: var(--muted);
+  margin: 0;
+}

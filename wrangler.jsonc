@@ -1,11 +1,21 @@
 {
-  // Cloudflare Workers config: static assets only, no Worker script.
+  // Static Astro site plus one Worker route (/api/contact) for the contact form.
   "name": "cloudflare-cloudarclabs",
+  "main": "src/worker.ts",
   "compatibility_date": "2026-11-01",
   // Required by `wrangler preview`, which Workers Builds runs for non-production branches.
   "previews": {},
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "not_found_handling": "404-page",
+    // Only /api/* reaches the Worker; everything else is served as a static asset.
+    "run_worker_first": ["/api/*"]
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_destination_addresses": ["info@cloudarclabs.com"],
+      "allowed_sender_addresses": ["website@cloudarclabs.com"]
+    }
+  ]
 }
